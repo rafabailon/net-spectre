@@ -1,0 +1,56 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "net-spectre"
+version = "1.2.0"
+description = "Dependency-light network discovery and TCP/UDP service enumeration toolkit"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Net Spectre contributors" }]
+keywords = ["network", "discovery", "port-scanner", "security", "inventory", "nmap"]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Environment :: Console",
+    "Intended Audience :: System Administrators",
+    "Intended Audience :: Information Technology",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: System :: Networking",
+    "Topic :: Security",
+]
+dependencies = []
+
+[project.optional-dependencies]
+# Interface enumeration and complete X.509 certificate parsing.
+full = [
+    "psutil>=5.9",
+    "cryptography>=41.0",
+]
+dev = [
+    "pytest>=7.0",
+    "coverage>=7.0",
+]
+
+[project.scripts]
+net-spectre = "src.cli:main"
+
+[tool.setuptools]
+packages = ["src"]
+
+[tool.setuptools.package-data]
+src = ["py.typed"]
+
+[tool.coverage.run]
+source = ["src"]
+branch = true
+
+[tool.coverage.report]
+show_missing = true
+skip_covered = true

@@ -1,0 +1,16 @@
+# Net Spectre has no mandatory third-party dependencies.
+#
+# Every feature works with the Python standard library alone. The packages
+# below are optional and are detected at runtime when present. Install the
+# whole optional set with either of:
+#
+#   python3 -m pip install -r requirements.txt
+#   python3 -m pip install -e ".[full]"
+#
+# psutil        Faster, more portable interface enumeration.
+# cryptography  Complete X.509 certificate parsing.
+#
+# External tools (not installable with pip):
+#   nmap, arp-scan, avahi-utils  ->  see docs/USAGE.md
+psutil>=5.9
+cryptography>=41.0
